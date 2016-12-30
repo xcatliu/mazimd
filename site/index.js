@@ -1,4 +1,4 @@
-# 码字 md
+var initialValue = `# 码字 md
 
 > 干净精致的 Markdown 编辑器。
 
@@ -42,14 +42,14 @@ MIT
 ##### 五级标题
 ###### 六级标题
 
-行内代码：`alert('Hello World')`
+行内代码：\`alert('Hello World')\`
 
 块级代码：
 
-```js
+\`\`\`js
 var str = 'Hello World';
 alert(str);
-```
+\`\`\`
 
 块级引用：
 
@@ -93,3 +93,57 @@ HTML 代码：
 <p style="color:red;">红色的字</p>
 
 [SimpleMDE]: https://simplemde.com/
+`;
+
+var simplemde = new SimpleMDE({
+  autofocus: true,
+  autosave: {
+    enabled: true,
+    uniqueId: 'mazimd'
+  },
+  element: document.getElementById('mazimd-textarea'),
+  indentWithTabs: false,
+  initialValue: initialValue,
+  insertTexts: {
+    image: ['![](http://', ')']
+  },
+  placeholder: 'Hello World',
+  renderingConfig: {
+    codeSyntaxHighlighting: false
+  },
+  shortcuts: {
+    toggleSideBySide: null,
+    toggleFullScreen: null
+  },
+  spellChecker: false,
+  status: false,
+  toolbar: [
+    'bold',
+    'italic',
+    'strikethrough',
+    '|',
+    'heading-1',
+    'heading-2',
+    'heading-3',
+    '|',
+    'code',
+    'quote',
+    'unordered-list',
+    'ordered-list',
+    '|',
+    'link',
+    'image',
+    'table',
+    '|',
+    'preview',
+    '|',
+    {
+      name: 'about',
+      action: function customFunction(editor){
+          window.open('http://github.com/xcatliu/mazimd', '_blank');
+      },
+      className: "fa fa-info",
+      title: "About 码字 md",
+    }
+  ]
+});

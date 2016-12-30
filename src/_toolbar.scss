@@ -1,0 +1,225 @@
+.editor-toolbar {
+  // 
+  // Container
+  //
+  
+  position: relative;
+  user-select: none;
+  padding: 0 $width-gap;
+  border-top: 1px solid $color-border;
+  border-left: 1px solid $color-border;
+  border-right: 1px solid $color-border;
+  border-top-left-radius: $border-radius-input;
+  border-top-right-radius: $border-radius-input;
+  font-size: $font-size;
+
+  &:before,
+  &:after {
+    display: block;
+    content: ' ';
+    height: 1px;
+  }
+  &:before {
+    margin-bottom: $width-gap-half;
+  }
+  &:after {
+    margin-top: $width-gap-half;
+  }
+
+
+  //
+  // Icons
+  //
+
+  a {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none !important;
+    color: $color-text-muted !important;
+    width: $mde-width-toolbar-icon;
+    height: $mde-width-toolbar-icon;
+    margin: 0;
+    border: 1px solid transparent;
+    border-radius: $border-radius-input;
+    cursor: pointer;
+    font-size: $font-size-small;
+
+    &.active,
+    &:hover {
+      color: $color-text !important;
+      border-color: $color-border;
+    }
+
+    &:before {
+      line-height: $mde-width-toolbar-icon;
+    }
+
+    // Header icons
+    &.fa-header-x:after {
+      font-family: $font-family;
+      font-size: $font-size-sub-sup;
+      vertical-align: text-bottom;
+      position: relative;
+      top: $mde-relative-top-header-x;
+    }
+    &.fa-header-1:after {
+      content: "1";
+    }
+    &.fa-header-2:after {
+      content: "2";
+    }
+    &.fa-header-3:after {
+      content: "3";
+    }
+    &.fa-header-bigger:after {
+      content: "▲";
+    }
+    &.fa-header-smaller:after {
+      content: "▼";
+    }
+  }
+  
+
+  //
+  // Separator
+  //
+
+  & i.separator {
+    display: inline-block;
+    width: 0;
+    border-right: 1px solid $color-border;
+    color: transparent;
+    text-indent: -10px;
+    margin: 0 $width-gap-half;
+  }
+
+  &:hover a {
+    color: $color-text !important;
+  }
+}
+
+
+//
+// Fullscreen mode
+//
+
+.editor-toolbar.fullscreen {
+  width: 100%;
+  height: $mde-height-toolbar-fullscreen;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding-top: $width-gap;
+  padding-bottom: $width-gap;
+  box-sizing: border-box;
+  background: $color-background;
+  border: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $mde-z-index-fullscreen;
+
+  &::before,
+  &::after {
+    width: 20px;
+    height: $mde-height-toolbar-fullscreen;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+
+//
+// Preview mode
+//
+
+.editor-preview {
+  padding: 0 ($width-gap + $width-gap-half) $width-gap;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: $color-background;
+  z-index: 7;
+  overflow: auto;
+  display: none;
+  box-sizing: border-box;
+}
+
+.editor-preview-side {
+  font-family: $font-family;
+  padding: $width-gap;
+  position: fixed;
+  bottom: 0;
+  width: 50%;
+  top: $mde-height-toolbar-fullscreen;
+  right: 0;
+  background: $color-background;
+  z-index: $mde-z-index-fullscreen;
+  overflow: auto;
+  display: none;
+  box-sizing: border-box;
+  border: 0;
+  border-top: 1px solid $color-border;
+  border-left: 1px solid $color-border;
+}
+
+.editor-preview-active-side {
+  display: block
+}
+
+.editor-preview-active {
+  display: block
+}
+
+.editor-toolbar.disabled-for-preview a:not(.no-disable) {
+  pointer-events: none;
+  background: $color-background;
+  border-color: transparent;
+  text-shadow: inherit;
+}
+
+
+//
+// Mobile mode
+//
+
+@media only screen and (max-width: $mde-breakpoint-mobile) {
+  .editor-toolbar a.no-mobile {
+    display: none;
+  }
+}
+
+
+//
+// Statusbar
+//
+
+.editor-statusbar {
+  padding: $width-gap-half $width-gap;
+  font-family: $font-family;
+  font-size: $font-size-small;
+  color: $color-text-muted;
+  text-align: right;
+}
+
+.editor-statusbar span {
+  display: inline-block;
+  margin-left: 1em;
+}
+
+.editor-statusbar .lines:before {
+  content: 'lines: '
+}
+
+.editor-statusbar .words:before {
+  content: 'words: '
+}
+
+.editor-statusbar .characters:before {
+  content: 'characters: '
+}

@@ -1,0 +1,99 @@
+.CodeMirror {
+  //
+  // Container
+  //
+
+  font-family: $font-family;
+  font-size: $font-size;
+  line-height: $line-height;
+  color: $color-text;
+
+
+  //
+  // Colors
+  //
+
+  // HTML tag and image alt
+  .cm-tag {
+    color: $color-background-btn-primary;
+  }
+  // HTML attribute key
+  .cm-attribute {
+    color: $color-background-btn-primary;
+  }
+  // HTML attribute value
+  .cm-string {
+    color: $color-text-muted;
+  }
+  .cm-link {
+    color: $color-text-link;
+  }
+  // Url part can be muted since link is highlighted
+  .cm-url {
+    color: $color-text-muted;
+  }
+  .CodeMirror-selected {
+    background: $color-background-active;
+  }
+  .CodeMirror-placeholder {
+    // darkgray is the default color for placeholder in chrome
+    color: darkgray;
+  }
+
+
+  //
+  // Typography
+  //
+
+  // Headings
+  .cm-header-1,
+  .cm-header-2,
+  .cm-header-3,
+  .cm-header-4,
+  .cm-header-5,
+  .cm-header-6 {
+    line-height: $mde-line-height-header;
+  }
+  .cm-header-1 {
+    font-size: $font-size-h1;
+  }
+  .cm-header-2 {
+    font-size: $font-size-h2;
+  }
+  .cm-header-3 {
+    font-size: $font-size-h3;
+  }
+  .cm-header-4 {
+    font-size: $font-size-h4;
+  }
+  .cm-header-5 {
+    font-size: $font-size-h5;
+  }
+  .cm-header-6 {
+    font-size: $font-size-h6;
+  }
+
+  .cm-header,
+  .cm-strong {
+    font-weight: $font-weight-bold;
+  }
+
+  // Code
+  .cm-comment {
+    font-family: $font-family-monospace;
+    background: $color-background-code;
+    font-size: $font-size-code;
+    padding: $mde-padding-code;
+  }
+  span.CodeMirror-selectedtext.cm-comment {
+    background: $color-background-code;
+  }
+
+  .cm-quote {
+    color: $color-text-muted;
+  }
+
+  .cm-strikethrough {
+    text-decoration: line-through;
+  }
+}

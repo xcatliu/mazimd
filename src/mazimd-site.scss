@@ -1,0 +1,23 @@
+@import 'variables-override-mobi';
+@import 'mobi.css/src/mobi';
+
+html, body {
+  height: 100%;
+}
+
+.CodeMirror {
+  flex-basis: 0;
+  flex-grow: 1;
+  border: 0;
+  padding: 0;
+}
+
+.editor-toolbar {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+.editor-preview {
+  padding: 0 $width-gap-half;
+}

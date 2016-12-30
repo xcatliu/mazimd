@@ -1,0 +1,231 @@
+.editor-preview,
+.editor-preview-side {
+  //
+  // Container
+  //
+  
+  color: $color-text-body;
+  font-family: $font-family;
+  font-size: $font-size;
+  line-height: $line-height;
+
+
+  //
+  // Typography
+  //
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: $width-gap-big 0 0;
+  }
+
+  p,
+  blockquote,
+  table,
+  hr,
+  dl,
+  ul,
+  ol,
+  pre,
+  address,
+  figure {
+    margin: $width-gap 0 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: $font-weight-bold;
+  }
+
+  h1 { font-size: $font-size-h1; }
+  h2 { font-size: $font-size-h2; }
+  h3 { font-size: $font-size-h3; }
+  h4 { font-size: $font-size-h4; }
+  h5 { font-size: $font-size-h5; }
+  h6 { font-size: $font-size-h6; }
+
+  a {
+    color: $color-text-link;
+    text-decoration: none;
+    // Remove gaps in links underline in iOS 8+ and Safari 8+.
+    -webkit-text-decoration-skip: objects;
+
+    &:active,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  b,
+  strong,
+  dt {
+    font-weight: $font-weight-bold;
+  }
+
+  code,
+  kbd,
+  samp {
+    background-color: $color-background-code;
+    font-family: $font-family-monospace;
+    font-size: $font-size-code;
+    padding: $padding-code;
+  }
+
+  pre {
+    // Mobile device has a small height, so we need to enable scroll-view
+    @include scroll-view();
+
+    background-color: $color-background-pre;
+    font-family: $font-family-monospace;
+    font-size: $font-size-pre;
+    line-height: $line-height-pre;
+    // Mobile device has a small height, so we need to set the width of pre to the device width
+    // margin-left: -$width-gap;
+    // margin-right: -$width-gap;
+    padding: $width-gap;
+
+    // Override the code styles
+    code {
+      background-color: transparent;
+      font-size: $font-size-pre;
+      padding: 0;
+    }
+
+    @media (min-width: $max-width-container - $width-gap-double) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+  
+  .CodeMirror pre {
+    z-index: auto;
+  }
+
+  blockquote {
+    border-left: $border-left-blockquote;
+    color: $color-text-blockquote;
+    padding-left: $width-gap;
+  }
+
+  ul,
+  ol {
+    padding-left: $width-gap-double;
+  }
+
+  dt,
+  dd,
+  ol ol,
+  ul ul,
+  ol ul,
+  ul ol {
+    margin: 0;
+  }
+
+  hr {
+    border: 0;
+    border-top: $border-top-hr;
+  }
+
+  small {
+    font-size: $font-size-small;
+  }
+
+  // Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+  sub,
+  sup {
+    font-size: $font-size-sub-sup;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+
+  sub {
+    bottom: -.25em;
+  }
+
+  sup {
+    top: -.5em;
+  }
+
+  address,
+  time {
+    color: $color-text-muted;
+    font-style: normal;
+  }
+
+  mark {
+    background-color: $color-background-mark;
+    color: $color-text;
+    padding: 0 .2em;
+  }
+
+  abbr[title] {
+    border-bottom: 0;
+    text-decoration: underline;
+    text-decoration: underline dotted;
+  }
+
+
+  //
+  // Embedded Content
+  //
+
+  // Add the correct display in iOS 4-7.
+  audio:not([controls]) {
+    display: none;
+    height: 0;
+  }
+
+  img {
+    max-width: 100%;
+    vertical-align: middle;
+  }
+
+  audio,
+  video {
+    width: 100%;
+  }
+
+
+  //
+  // Table
+  //
+
+  table {
+    // Reset for nesting within parents with `background-color`.
+    background-color: $color-background-table;
+    border: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    // Enable scroll-view on mobile
+    width: 100%;
+
+    caption {
+      caption-side: bottom;
+      color: $color-text-muted;
+      padding: $padding-table-cell;
+      text-align: left;
+    }
+
+    th,
+    td {
+      border: 0;
+      border-bottom: $border-bottom-th-td;
+      padding: $padding-table-cell;
+      text-align: left;
+    }
+
+    th {
+      background-color: $color-background-th;
+      font-weight: $font-weight-bold;
+    }
+  }
+}

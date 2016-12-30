@@ -1,0 +1,36 @@
+{
+  "name": "mazimd",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xcatliu/mazimd.git"
+  },
+  "author": "xcatliu <xcatliu@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xcatliu/mazimd/issues"
+  },
+  "homepage": "https://github.com/xcatliu/mazimd#readme",
+  "dependencies": {
+    "highlight.js": "^9.9.0",
+    "mobi.css": "^1.1.0",
+    "simplemde": "^1.11.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.6.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.3.2",
+    "gulp-postcss": "^6.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.0.0",
+    "gulp-sourcemaps": "^1.9.1",
+    "rimraf": "^2.5.4",
+    "run-sequence": "^1.2.2"
+  }
+}
