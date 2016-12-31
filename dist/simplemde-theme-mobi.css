@@ -455,6 +455,12 @@ span.CodeMirror-selectedtext {
     background: rgba(0, 0, 0, 0.1); }
   .CodeMirror .CodeMirror-placeholder {
     color: darkgray; }
+  .CodeMirror .cm-formatting-header,
+  .CodeMirror .cm-formatting-em,
+  .CodeMirror .cm-formatting-strong,
+  .CodeMirror .cm-formatting-strikethrough,
+  .CodeMirror .cm-hr {
+    color: #777; }
   .CodeMirror .cm-header-1,
   .CodeMirror .cm-header-2,
   .CodeMirror .cm-header-3,

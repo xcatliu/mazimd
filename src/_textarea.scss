@@ -39,6 +39,13 @@
     // darkgray is the default color for placeholder in chrome
     color: darkgray;
   }
+  .cm-formatting-header,
+  .cm-formatting-em,
+  .cm-formatting-strong,
+  .cm-formatting-strikethrough,
+  .cm-hr {
+    color: $color-text-muted;
+  }
 
 
   //

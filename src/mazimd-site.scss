@@ -1,23 +1,41 @@
 @import 'variables-override-mobi';
 @import 'mobi.css/src/mobi';
 
-html, body {
-  height: 100%;
+.mazimd-toolbar-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 46px;
+  width: 100%;
+  z-index: 10;
+  background: $color-background;
+}
+
+.mazimd-container {
+  margin-top: 46px;
+}
+
+.mazimd-preview .CodeMirror-scroll {
+  display: none;
 }
 
 .CodeMirror {
-  flex-basis: 0;
-  flex-grow: 1;
   border: 0;
   padding: 0;
 }
 
 .editor-toolbar {
+  position: fixed;
+  top: 0;
+  background: $color-background;
+  z-index: 10;
   margin: 0;
   border: 0;
   padding: 0;
 }
 
 .editor-preview {
+  position: relative;
+  height: auto;
   padding: 0 $width-gap-half;
 }

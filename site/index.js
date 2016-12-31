@@ -112,6 +112,7 @@ var simplemde = new SimpleMDE({
     codeSyntaxHighlighting: false
   },
   shortcuts: {
+    togglePreview: null,
     toggleSideBySide: null,
     toggleFullScreen: null
   },
@@ -122,10 +123,7 @@ var simplemde = new SimpleMDE({
     'italic',
     'strikethrough',
     '|',
-    'heading-1',
-    'heading-2',
-    'heading-3',
-    '|',
+    'heading',
     'code',
     'quote',
     'unordered-list',
@@ -135,7 +133,24 @@ var simplemde = new SimpleMDE({
     'image',
     'table',
     '|',
-    'preview',
+    {
+      name: "preview",
+      action: (editor) => {
+        editor.togglePreview();
+
+        var mazimdContainer = document.getElementById('mazimd-container');
+
+        setTimeout(() => {
+          if (editor.isPreviewActive()) {
+            mazimdContainer.classList.add('mazimd-preview');
+          } else {
+            mazimdContainer.classList.remove('mazimd-preview');
+          }
+        }, 0);
+      },
+      className: "fa fa-eye no-disable",
+      title: "Toggle Preview"
+    },
     '|',
     {
       name: 'about',
@@ -143,7 +158,7 @@ var simplemde = new SimpleMDE({
           window.open('http://github.com/xcatliu/mazimd', '_blank');
       },
       className: "fa fa-info",
-      title: "About 码字 md",
+      title: "关于 码字 md",
     }
   ]
 });
