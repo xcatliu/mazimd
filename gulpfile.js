@@ -28,8 +28,8 @@ const postcssConfig = [autoprefixer({ browsers: [
 
 const SRC_DIR = path.resolve(__dirname, 'src');
 const DIST_DIR = path.resolve(__dirname, 'dist');
-const SITE_DIR = path.resolve(__dirname, 'site');
-const SITE_CSS_DIR = path.resolve(__dirname, 'site/css');
+const SITE_DIR = path.resolve(__dirname, 'docs');
+const SITE_CSS_DIR = path.resolve(__dirname, 'docs/css');
 
 gulp.task('default', ['build_copy'], () => {
   gulp.watch([
@@ -45,8 +45,6 @@ gulp.task('build_copy', () => {
 
 gulp.task('build', [
   'clean:dist',
-  'build:simplemde-theme-mobi:sourcemaps',
-  'build:simplemde-theme-mobi:compressed',
   'build:mazimd-site:sourcemaps',
   'build:mazimd-site:compressed',
 ]);
@@ -59,20 +57,6 @@ gulp.task('copy', [
 gulp.task('clean:dist', () => {
   rimraf.sync(`${DIST_DIR}/*`);
 });
-
-gulp.task('build:simplemde-theme-mobi:compressed', ['build:simplemde-theme-mobi:sourcemaps'], () => gulp.src(`${DIST_DIR}/simplemde-theme-mobi.css`)
-  .pipe(cleanCSS())
-  .pipe(rename('simplemde-theme-mobi.min.css'))
-  .pipe(gulp.dest(DIST_DIR)));
-
-gulp.task('build:simplemde-theme-mobi:sourcemaps', () => gulp.src(`${SRC_DIR}/simplemde-theme-mobi.scss`)
-  .pipe(sourcemaps.init())
-  .pipe(sass({
-    includePaths: 'node_modules'
-  }).on('error', sass.logError))
-  .pipe(postcss(postcssConfig))
-  .pipe(sourcemaps.write('./'))
-  .pipe(gulp.dest(DIST_DIR)));
 
 gulp.task('build:mazimd-site:compressed', ['build:mazimd-site:sourcemaps'], () => gulp.src(`${DIST_DIR}/mazimd-site.css`)
   .pipe(cleanCSS())

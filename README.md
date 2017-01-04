@@ -6,7 +6,7 @@
 
 - 基于 [SimpleMDE][] 和 [Mobi.css](http://getmobicss.com/zh-cn/)，加入了中文适配
 - 精致的预览页，可以直接拷贝到 word 或导出为 pdf（开发中）
-- 主题可单独使用，配合 [SimpleMDE][] 的 API，可以很方便的将此编辑器嵌入到你的网站上
+- [SimpleMDE Theme Base](https://github.com/xcatliu/simplemde-theme-base) 主题可单独使用，配合 [SimpleMDE][] 的 API，可以很方便的将此编辑器嵌入到你的网站上
 
 ### 功能
 
