@@ -8,17 +8,18 @@ const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 const runSequence = require('run-sequence');
+const pkg = require('./package.json');
 
 const postcssConfig = [autoprefixer({ browsers: [
-  'last 5 iOS versions',
-  'last 5 Android versions',
-  'last 5 ExplorerMobile versions',
-  'last 5 ChromeAndroid versions',
-  'last 5 UCAndroid versions',
-  'last 5 FirefoxAndroid versions',
-  'last 5 OperaMobile versions',
-  'last 5 OperaMini versions',
-  'last 5 Samsung versions',
+  'last 3 iOS versions',
+  'last 3 Android versions',
+  'last 3 ExplorerMobile versions',
+  'last 3 ChromeAndroid versions',
+  'last 3 UCAndroid versions',
+  'last 3 FirefoxAndroid versions',
+  'last 3 OperaMobile versions',
+  'last 3 OperaMini versions',
+  'last 3 Samsung versions',
 
   'last 3 Chrome versions',
   'last 3 Firefox versions',
@@ -45,8 +46,8 @@ gulp.task('build_copy', () => {
 
 gulp.task('build', [
   'clean:dist',
-  'build:mazimd-site:sourcemaps',
-  'build:mazimd-site:compressed',
+  'build:mazimd-site',
+  'build:mazimd-site:min',
 ]);
 
 gulp.task('copy', [
@@ -58,12 +59,14 @@ gulp.task('clean:dist', () => {
   rimraf.sync(`${DIST_DIR}/*`);
 });
 
-gulp.task('build:mazimd-site:compressed', ['build:mazimd-site:sourcemaps'], () => gulp.src(`${DIST_DIR}/mazimd-site.css`)
+gulp.task('build:mazimd-site:min', ['build:mazimd-site'], () => gulp.src(`${DIST_DIR}/mazimd-site.css`)
+  .pipe(sourcemaps.init())
   .pipe(cleanCSS())
   .pipe(rename('mazimd-site.min.css'))
+  .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest(DIST_DIR)));
 
-gulp.task('build:mazimd-site:sourcemaps', () => gulp.src(`${SRC_DIR}/mazimd-site.scss`)
+gulp.task('build:mazimd-site', () => gulp.src(`${SRC_DIR}/mazimd-site.scss`)
   .pipe(sourcemaps.init())
   .pipe(sass({
     includePaths: 'node_modules'

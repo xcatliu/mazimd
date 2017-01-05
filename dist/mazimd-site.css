@@ -86,7 +86,7 @@ kbd,
 samp {
   background-color: rgba(0, 0, 0, 0.05);
   font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: 15.3px;
+  font-size: 14.4px;
   padding: 0.1em 0.2em; }
 
 pre {
@@ -131,7 +131,7 @@ hr {
   border-top: 1px solid #ddd; }
 
 small {
-  font-size: 15.3px; }
+  font-size: 14.4px; }
 
 sub,
 sup {
@@ -268,12 +268,10 @@ progress {
 .flex-bottom,
 .flex-vertical {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-flow: row nowrap;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap; }
+  -ms-flex-flow: row nowrap;
+      flex-flow: row nowrap; }
 
 .flex-left,
 .flex-center,
@@ -288,46 +286,39 @@ progress {
 .flex-vertical.flex-middle,
 .flex-vertical.flex-bottom {
   -webkit-box-align: stretch;
-  -webkit-align-items: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
   -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
       -ms-flex-pack: start;
           justify-content: flex-start; }
 
 .flex-center,
 .flex-vertical.flex-middle {
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center; }
 
 .flex-right,
 .flex-vertical.flex-bottom {
   -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
       -ms-flex-pack: end;
           justify-content: flex-end; }
 
 .flex-top,
 .flex-vertical.flex-left {
   -webkit-box-align: start;
-  -webkit-align-items: flex-start;
       -ms-flex-align: start;
           align-items: flex-start; }
 
 .flex-middle,
 .flex-vertical.flex-center {
   -webkit-box-align: center;
-  -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center; }
 
 .flex-bottom,
 .flex-vertical.flex-right {
   -webkit-box-align: end;
-  -webkit-align-items: flex-end;
       -ms-flex-align: end;
           align-items: flex-end; }
 
@@ -345,11 +336,9 @@ progress {
     padding-right: 7px; }
 
 .unit {
-  -webkit-flex-basis: 0;
-      -ms-flex-preferred-size: 0;
-          flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+      flex-basis: 0;
   -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
   max-width: 100%; }
@@ -359,44 +348,37 @@ progress {
 .unit-2-3,
 .unit-1-4,
 .unit-3-4 {
-  -webkit-flex-shrink: 0;
-      -ms-flex-negative: 0;
-          flex-shrink: 0; }
+  -ms-flex-negative: 0;
+      flex-shrink: 0; }
 
 .unit-1-2 {
-  -webkit-flex-basis: 50%;
-      -ms-flex-preferred-size: 50%;
-          flex-basis: 50%;
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
   max-width: 50%; }
 
 .unit-1-3 {
-  -webkit-flex-basis: 33.33%;
-      -ms-flex-preferred-size: 33.33%;
-          flex-basis: 33.33%;
+  -ms-flex-preferred-size: 33.33%;
+      flex-basis: 33.33%;
   max-width: 33.33%; }
 
 .unit-2-3 {
-  -webkit-flex-basis: 66.67%;
-      -ms-flex-preferred-size: 66.67%;
-          flex-basis: 66.67%;
+  -ms-flex-preferred-size: 66.67%;
+      flex-basis: 66.67%;
   max-width: 66.67%; }
 
 .unit-1-4 {
-  -webkit-flex-basis: 25%;
-      -ms-flex-preferred-size: 25%;
-          flex-basis: 25%;
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
   max-width: 25%; }
 
 .unit-3-4 {
-  -webkit-flex-basis: 75%;
-      -ms-flex-preferred-size: 75%;
-          flex-basis: 75%;
+  -ms-flex-preferred-size: 75%;
+      flex-basis: 75%;
   max-width: 75%; }
 
 .flex-vertical {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column; }
   .flex-vertical > .unit,
@@ -616,13 +598,13 @@ a.text-muted {
   text-decoration: underline; }
 
 .mazimd-toolbar-background {
+  background: #fff;
+  height: 46px;
+  left: 0;
   position: fixed;
   top: 0;
-  left: 0;
-  height: 46px;
   width: 100%;
-  z-index: 10;
-  background: #fff; }
+  z-index: 10; }
 
 .mazimd-container {
   margin-top: 46px; }
@@ -635,17 +617,17 @@ a.text-muted {
   padding: 0; }
 
 .editor-toolbar {
+  background: #fff;
+  border: 0;
+  margin: 0;
+  padding: 0;
   position: fixed;
   top: 0;
-  background: #fff;
-  z-index: 10;
-  margin: 0;
-  border: 0;
-  padding: 0; }
+  z-index: 10; }
 
 .editor-preview {
-  position: relative;
   height: auto;
-  padding: 0; }
+  padding: 0;
+  position: relative; }
 
 /*# sourceMappingURL=mazimd-site.css.map */

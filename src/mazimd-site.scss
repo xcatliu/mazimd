@@ -2,13 +2,13 @@
 @import 'mobi.css/src/mobi';
 
 .mazimd-toolbar-background {
+  background: $color-background;
+  height: 46px;
+  left: 0;
   position: fixed;
   top: 0;
-  left: 0;
-  height: 46px;
   width: 100%;
   z-index: 10;
-  background: $color-background;
 }
 
 .mazimd-container {
@@ -25,17 +25,17 @@
 }
 
 .editor-toolbar {
+  background: $color-background;
+  border: 0;
+  margin: 0;
+  padding: 0;
   position: fixed;
   top: 0;
-  background: $color-background;
   z-index: 10;
-  margin: 0;
-  border: 0;
-  padding: 0;
 }
 
 .editor-preview {
-  position: relative;
   height: auto;
   padding: 0;
+  position: relative;
 }

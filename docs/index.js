@@ -53,7 +53,7 @@ alert(str);
 
 块级引用：
 
-> 码字 md —— 干净精致的 Markdown 编辑器
+> 码字 md • 干净精致的 Markdown 编辑器
 
 无序列表：
 
