@@ -1,6 +1,6 @@
 # [码字 md](http://mazimd.com)
 
-[![Build Status](https://img.shields.io/travis/xcatliu/mazimd.svg?style=flat-square)](https://travis-ci.org/xcatliu/mazimd) [![npm package](https://img.shields.io/npm/v/mazimd.svg?style=flat-square)](https://www.npmjs.org/package/mazimd)
+[![Build Status](https://img.shields.io/travis/xcatliu/mazimd.svg?style=flat-square)](https://travis-ci.org/xcatliu/mazimd)
 
 > 干净精致的 Markdown 编辑器。
 
