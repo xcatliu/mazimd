@@ -113,8 +113,7 @@ var simplemde = new SimpleMDE({
   },
   shortcuts: {
     togglePreview: null,
-    toggleSideBySide: null,
-    toggleFullScreen: null
+    toggleSideBySide: null
   },
   spellChecker: false,
   status: false,
@@ -134,29 +133,48 @@ var simplemde = new SimpleMDE({
     'table',
     '|',
     {
-      name: "preview",
+      name: 'preview',
       action: (editor) => {
         editor.togglePreview();
 
-        var mazimdContainer = document.getElementById('mazimd-container');
-
         setTimeout(() => {
           if (editor.isPreviewActive()) {
-            mazimdContainer.classList.add('mazimd-preview');
+            document.body.classList.add('mazimd-preview');
           } else {
-            mazimdContainer.classList.remove('mazimd-preview');
+            document.body.classList.remove('mazimd-preview');
           }
         }, 0);
       },
-      className: "fa fa-eye no-disable",
-      title: "Toggle Preview"
+      className: 'fa fa-eye no-disable',
+      title: '预览'
+    },
+    {
+      name: 'side-by-side',
+      action: (editor) => {
+        editor.toggleSideBySide();
+
+        setTimeout(() => {
+          if (editor.isSideBySideActive()) {
+            document.body.classList.add('mazimd-side-by-side');
+          } else {
+            document.body.classList.remove('mazimd-side-by-side');
+          }
+        }, 0);
+      },
+      className: "fa fa-columns no-disable no-mobile",
+      title: '双栏模式'
+    },
+    {
+      name: 'fullscreen',
+      action: (editor) => {
+        editor.toggleFullScreen();
+        alert('hello');
+      }
     },
     '|',
     {
       name: 'about',
-      action: function customFunction(editor){
-          window.open('http://github.com/xcatliu/mazimd', '_blank');
-      },
+      action: 'http://github.com/xcatliu/mazimd',
       className: "fa fa-info",
       title: "关于 码字 md",
     }

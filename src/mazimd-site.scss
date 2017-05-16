@@ -15,10 +15,6 @@
   margin-top: 46px;
 }
 
-.mazimd-preview .CodeMirror-scroll {
-  display: none;
-}
-
 .CodeMirror {
   border: 0;
   padding: 0;
@@ -38,4 +34,17 @@
   height: auto;
   padding: 0;
   position: relative;
+}
+
+.mazimd-preview .CodeMirror-scroll {
+  display: none;
+}
+
+.mazimd-preview.mazimd-side-by-side .CodeMirror-scroll {
+  display: block;
+}
+
+.mazimd-side-by-side .mazimd-toolbar-background,
+.mazimd-fullscreen .mazimd-toolbar-background {
+  display: none;
 }
