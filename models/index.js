@@ -9,4 +9,4 @@ mongoose.connect(config.db, (err) => {
   }
 });
 
-exports.Article = mongoose.model('Article', require('./articleSchema'));
+exports.Page = require('./page');

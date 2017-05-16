@@ -1,39 +1,35 @@
 const Koa = require('koa');
 const Router = require('koa-router');
+const views = require('koa-views');
 const bodyParser = require('koa-bodyparser');
+const pagesId = require('./controllers/pages-id');
+const pagesNew = require('./controllers/pages/new');
+const apiPages = require('./controllers/api/pages');
 
 const app = new Koa();
+
+app.use(views('views', {
+  map: { hbs: 'handlebars' },
+}));
+
 const router = new Router();
 
-const Document = require('./models').Document;
+router.get('/pages/new', pagesNew.get);
+router.get('/pages/:id', pagesId.get);
 
-router
-  .get('/p/:id', async (ctx) => {
-    await new Promise((resolve, reject) => {
-      Document.find({
-        id: ctx.params.id
-      }, (err, documents) => {
-        if (err) {
-          console.error(err);
-          reject(err);
-        }
-        ctx.body = documents[0].content;
-        console.log(ctx.body);
-        resolve();
-      });
-    });
-  })
-  .post('/api/p', bodyParser(), async (ctx) => {
-    const document = new Document({
-      content: ctx.request.body.content,
-    });
-    document.id = document.md5Content();
-    await document.save().then(() => {
-      ctx.body = 'success'
-    });
-  })
+router.post('/api/pages', bodyParser(), apiPages.post);
 
-app
-  .use(router.routes());
+app.use(async function (ctx, next) {
+  try {
+    await next();
+  } catch (err) {
+    ctx.status = err.status || 500;
+    ctx.body = {
+      message: err.message,
+    };
+  }
+});
+
+app.use(router.routes());
 
 app.listen(3000);
