@@ -1,7 +1,7 @@
-const Page = require('../models').Page;
-const createError = require('../utils/createError');
+import Page from '../models/page';
+import createError from '../utils/createError';
 
-exports.get = async function (ctx) {
+const get = async function (ctx) {
   const id = ctx.params.id;
   if (!id) {
     return await Promise.reject(createError(400, 'id is null or undefined'));
@@ -23,3 +23,5 @@ exports.get = async function (ctx) {
     });
   });
 }
+
+export { get };

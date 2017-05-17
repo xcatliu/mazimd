@@ -1,7 +1,7 @@
-const Page = require('../../models').Page;
-const createError = require('../../utils/createError');
+import Page from '../../models/page';
+import createError from '../../utils/createError';
 
-exports.post = async function (ctx) {
+const post = async function (ctx) {
   if (!ctx.request.body) {
     return await Promise.reject(createError(400, 'Request body is null or undefined'));
   }
@@ -48,3 +48,5 @@ exports.post = async function (ctx) {
     });
   });
 };
+
+export { post };

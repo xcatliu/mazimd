@@ -1,0 +1,12 @@
+{
+  "include": [
+    "src/**/*"
+  ],
+  "compilerOptions": {
+    "outDir": "lib",
+    "rootDir": "src",
+    "target": "es2016",
+    "module": "commonjs",
+    "sourceMap": false
+  }
+}
