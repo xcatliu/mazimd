@@ -2,11 +2,12 @@
   "include": [
     "src/**/*"
   ],
+  "exclude": [
+    "src/public/**/*"    
+  ],
   "compilerOptions": {
     "outDir": "lib",
-    "rootDir": "src",
-    "target": "es2016",
-    "module": "commonjs",
-    "sourceMap": false
+    "target": "es2017",
+    "module": "commonjs"
   }
 }

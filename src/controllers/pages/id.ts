@@ -1,5 +1,5 @@
-import Page from '../models/page';
-import createError from '../utils/createError';
+import Page from '../../models/page';
+import createError from '../../utils/createError';
 
 const get = async function (ctx) {
   const id = ctx.params.id;
@@ -8,15 +8,15 @@ const get = async function (ctx) {
   }
 
   return await new Promise((resolve, reject) => {
-    Page.find({ id }, (err, pages) => {
+    Page.find({ id }, async (err, pages) => {
       if (err) {
         return reject(err);
       }
       if (Array.isArray(pages) && pages.length > 0) {
-        ctx.body = {
-          id,
+        ctx.state = {
           content: pages[0].content,
         };
+        await ctx.render('pages/id.hbs')
         return resolve();
       }
       return reject(createError(404, 'Not Found'));
