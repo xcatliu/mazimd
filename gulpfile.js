@@ -11,7 +11,7 @@ const SRC_VIEWS_DIR = path.resolve(__dirname, 'src/views');
 const SRC_PUBLIC_DIR = path.resolve(__dirname, 'src/public');
 const LIB_DIR = path.resolve(__dirname, 'lib');
 const LIB_VIEWS_DIR = path.resolve(__dirname, 'lib/views');
-const PUBLIC_DIR = path.resolve(__dirname, 'lib');
+const PUBLIC_DIR = path.resolve(__dirname, 'public');
 
 gulp.task('build', (callback) => {
   runSequence('clean:lib', 'clean:public', 'build:ts', 'build:webpack', 'build:views', callback);
