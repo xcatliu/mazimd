@@ -1,4 +1,4 @@
-require('superagent/lib/client')
+import * as request from 'superagent';
 
 function createNewPage(content, callback) {
   request
@@ -10,10 +10,21 @@ function createNewPage(content, callback) {
         return callback(err);
       }
       console.log(res);
-      callback(null, '');
+      callback(null, `/pages/${res.body.id}`);
     });
 }
 
-window.M = {
-  createNewPage,
-};
+var submit = document.getElementById('submit');
+var textarea = <HTMLTextAreaElement>(document.getElementById('textarea'));
+
+submit.addEventListener('click', function(e) {
+  e.preventDefault();
+  var content = textarea.value;
+
+  createNewPage(content, function(err, url) {
+    if (err) {
+      return alert(err.message);
+    }
+    location.href = url;
+  });
+});

@@ -6,7 +6,6 @@ const path = require('path');
 const { CheckerPlugin } = require('awesome-typescript-loader')
 
 module.exports = {
-
   entry: './src/public/entry',
   output: {
     path: path.join(__dirname, 'public'),
@@ -15,7 +14,7 @@ module.exports = {
 
   // Currently we need to add '.ts' to the resolve.extensions array.
   resolve: {
-    extensions: ['.ts', '.js']
+    extensions: ['', '.js', '.json', '.ts']
   },
 
   // Source maps support ('inline-source-map' also works)

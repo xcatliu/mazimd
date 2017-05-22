@@ -7,8 +7,8 @@ const webpack = require('gulp-webpack');
 const ts = require('gulp-typescript');
 const tsProject = ts.createProject('tsconfig.json');
 
-const SRC_VIEWS_DIR = path.resolve(__dirname, 'src/views');
 const SRC_PUBLIC_DIR = path.resolve(__dirname, 'src/public');
+const SRC_VIEWS_DIR = path.resolve(__dirname, 'src/views');
 const LIB_DIR = path.resolve(__dirname, 'lib');
 const LIB_VIEWS_DIR = path.resolve(__dirname, 'lib/views');
 const PUBLIC_DIR = path.resolve(__dirname, 'public');

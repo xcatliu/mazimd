@@ -8,22 +8,4 @@
     </form>
   </body>
   <script src="/public/bundle.js"></script>
-  <script>
-    (function() {
-      var submit = document.getElementById('submit');
-      var textarea = document.getElementById('textarea');
-
-      submit.addEventListener('click', function(e) {
-        e.preventDefault();
-        var content = textarea.value;
-
-        M.createNewPage(content, function(err, url) {
-          if (err) {
-            return alert(err.message);
-          }
-          // location.href = url;
-        });
-      });
-    })();
-  </script>
 </html>

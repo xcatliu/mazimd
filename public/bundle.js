@@ -44,7 +44,9 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	__webpack_require__(1);
+	"use strict";
+	Object.defineProperty(exports, "__esModule", { value: true });
+	const request = __webpack_require__(1);
 	function createNewPage(content, callback) {
 	    request
 	        .post('/api/pages')
@@ -55,12 +57,21 @@
 	            return callback(err);
 	        }
 	        console.log(res);
-	        callback(null, '');
+	        callback(null, `/pages/${res.body.id}`);
 	    });
 	}
-	window.M = {
-	    createNewPage,
-	};
+	var submit = document.getElementById('submit');
+	var textarea = (document.getElementById('textarea'));
+	submit.addEventListener('click', function (e) {
+	    e.preventDefault();
+	    var content = textarea.value;
+	    createNewPage(content, function (err, url) {
+	        if (err) {
+	            return alert(err.message);
+	        }
+	        location.href = url;
+	    });
+	});
 
 
 /***/ }),

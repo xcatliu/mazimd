@@ -2,12 +2,19 @@
   "include": [
     "src/**/*"
   ],
-  "exclude": [
-    "src/public/**/*"    
-  ],
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "superagent": ["node_modules/superagent/superagent"]
+    },
     "outDir": "lib",
     "target": "es2017",
-    "module": "commonjs"
+    "module": "commonjs",
+    "lib": [
+      "dom",
+      "es2015",
+      "dom.iterable",
+      "scripthost"
+    ]
   }
 }
