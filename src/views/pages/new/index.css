@@ -1,0 +1,42 @@
+.mazimd-toolbar-background {
+  background: #fff;
+  height: 46px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.mazimd-toolbar {
+  padding: 0;
+  height: 46px;
+  line-height: 46px;
+}
+
+.mazimd-preview-button {
+  float: right;
+}
+
+.mazimd-container {
+  margin-top: 46px;
+}
+
+.mazimd-preview .CodeMirror-scroll {
+  display: none;
+}
+
+.CodeMirror {
+  border: 0;
+  padding: 0;
+}
+
+.editor-toolbar {
+  background: #fff;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}

@@ -1,40 +1,56 @@
 {
-  "name": "mazimd",
+  "name": "mazimd-api",
   "version": "0.0.0",
-  "description": "码字 md • 干净精致的 Markdown 编辑器",
-  "main": "docs/index.html",
+  "description": "The api server for mazimd",
+  "main": "lib/app.js",
   "scripts": {
     "start": "gulp",
-    "build": "gulp build_copy",
-    "lint": "stylelint src/**/*.scss --syntax scss && echo 'stylelint passed!\\n'",
-    "test": "npm run lint"
+    "build": "gulp build",
+    "serve": "gulp serve",
+    "test": "npm run lint",
+    "lint": "tslint 'src/**/*.ts'"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xcatliu/mazimd.git"
+    "url": "git+https://github.com/xcatliu/mazimd-api.git"
   },
   "author": "xcatliu <xcatliu@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/xcatliu/mazimd/issues"
+    "url": "https://github.com/xcatliu/mazimd-api/issues"
   },
-  "homepage": "https://github.com/xcatliu/mazimd#readme",
+  "homepage": "https://github.com/xcatliu/mazimd-api#readme",
   "dependencies": {
-    "highlight.js": "^9.9.0",
-    "mobi.css": "^1.1.0",
-    "simplemde": "^1.11.2"
+    "koa": "^2.2.0",
+    "koa-hbs": "^1.0.0",
+    "koa-mount": "^3.0.0",
+    "koa-router": "^7.2.0",
+    "koa-static": "^3.0.0",
+    "simplemde": "^1.11.2",
+    "superagent": "^3.5.2"
   },
   "devDependencies": {
-    "autoprefixer": "^6.6.0",
+    "@types/koa": "^2.0.39",
+    "@types/koa-bodyparser": "^3.0.23",
+    "@types/koa-hbs": "^1.0.2",
+    "@types/koa-mount": "^2.0.18",
+    "@types/koa-router": "^7.0.22",
+    "@types/koa-static": "^2.0.22",
+    "@types/simplemde": "^1.11.6",
+    "@types/superagent": "^2.0.36",
+    "browserify": "^14.4.0",
     "gulp": "^3.9.1",
-    "gulp-clean-css": "^2.3.2",
-    "gulp-postcss": "^6.2.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.0.0",
-    "gulp-sourcemaps": "^1.9.1",
-    "rimraf": "^2.5.4",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-typescript": "^3.1.6",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "rimraf": "^2.6.1",
     "run-sequence": "^1.2.2",
-    "stylelint": "^7.7.1",
-    "stylelint-config-standard": "^15.0.1"
+    "tsify": "^3.0.1",
+    "tslint": "^5.3.2",
+    "typescript": "^2.3.3",
+    "uglify-es": "^3.0.11",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
   }
 }

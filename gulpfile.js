@@ -1,83 +1,92 @@
+const exec = require('child_process').exec;
 const gulp = require('gulp');
 const path = require('path');
-const sass = require('gulp-sass');
-const sourcemaps = require('gulp-sourcemaps');
-const rename = require('gulp-rename');
-const rimraf = require('rimraf');
-const postcss = require('gulp-postcss');
-const autoprefixer = require('autoprefixer');
-const cleanCSS = require('gulp-clean-css');
 const runSequence = require('run-sequence');
-const pkg = require('./package.json');
+const rimraf = require('rimraf');
+const browserify = require("browserify");
+const source = require('vinyl-source-stream');
+const tsify = require("tsify");
+const sourcemaps = require('gulp-sourcemaps');
+const buffer = require('vinyl-buffer');
+const gutil = require('gulp-util');
+const uglifyes = require('uglify-es');
+const composer = require('gulp-uglify/composer');
+const minify = composer(uglifyes, console);
 
-const postcssConfig = [autoprefixer({ browsers: [
-  'last 3 iOS versions',
-  'last 3 Android versions',
-  'last 3 ExplorerMobile versions',
-  'last 3 ChromeAndroid versions',
-  'last 3 UCAndroid versions',
-  'last 3 FirefoxAndroid versions',
-  'last 3 OperaMobile versions',
-  'last 3 OperaMini versions',
-  'last 3 Samsung versions',
-
-  'last 3 Chrome versions',
-  'last 3 Firefox versions',
-  'last 3 Safari versions',
-  'last 3 Edge versions',
-] })];
+const ts = require('gulp-typescript');
+const tsProject = ts.createProject('tsconfig.json');
 
 const SRC_DIR = path.resolve(__dirname, 'src');
-const DIST_DIR = path.resolve(__dirname, 'dist');
-const SITE_DIR = path.resolve(__dirname, 'docs');
-const SITE_CSS_DIR = path.resolve(__dirname, 'docs/css');
+const LIB_DIR = path.resolve(__dirname, 'lib');
+const PUBLIC_DIR = path.resolve(__dirname, 'public');
 
-gulp.task('default', ['build_copy'], () => {
-  gulp.watch([
-    `${SRC_DIR}/**/*`,
-  ], ['build_copy']);
+gulp.task('default', () => {
+  runSequence('build', 'serve');
 });
 
-gulp.task('build_copy', () => {
-  setTimeout(() => {
-    runSequence('build', 'copy');
-  }, 300);
+gulp.task('build', (callback) => {
+  runSequence('clean:lib', 'build:ts', 'build:copy-vendor', 'build:copy-hbs', 'build:copy-css', 'build:browserify', callback);
 });
 
-gulp.task('build', [
-  'clean:dist',
-  'build:mazimd-site',
-  'build:mazimd-site:min',
-]);
+gulp.task('build:ts', () =>
+  tsProject.src()
+    .pipe(tsProject())
+    .js.pipe(gulp.dest(LIB_DIR)));
 
-gulp.task('copy', [
-  'clean:site_css',
-  'copy:site_css',
-]);
-
-gulp.task('clean:dist', () => {
-  rimraf.sync(`${DIST_DIR}/*`);
+gulp.task('build:copy-vendor', (callback) => {
+  gulp.src([
+    `${SRC_DIR}/vendor/**/*`,
+  ]).pipe(gulp.dest(`${PUBLIC_DIR}/vendor`))
+  .on('end', callback);
 });
 
-gulp.task('build:mazimd-site:min', ['build:mazimd-site'], () => gulp.src(`${DIST_DIR}/mazimd-site.css`)
-  .pipe(sourcemaps.init())
-  .pipe(cleanCSS())
-  .pipe(rename('mazimd-site.min.css'))
-  .pipe(sourcemaps.write('./'))
-  .pipe(gulp.dest(DIST_DIR)));
-
-gulp.task('build:mazimd-site', () => gulp.src(`${SRC_DIR}/mazimd-site.scss`)
-  .pipe(sourcemaps.init())
-  .pipe(sass({
-    includePaths: 'node_modules'
-  }).on('error', sass.logError))
-  .pipe(postcss(postcssConfig))
-  .pipe(sourcemaps.write('./'))
-  .pipe(gulp.dest(DIST_DIR)));
-
-gulp.task('clean:site_css', () => {
-  rimraf.sync(`${SITE_CSS_DIR}/*`);
+gulp.task('build:copy-hbs', (callback) => {
+  gulp.src([
+    `${SRC_DIR}/views/**/*.hbs`,
+  ]).pipe(gulp.dest(`${LIB_DIR}/views`))
+  .on('end', callback);
 });
 
-gulp.task('copy:site_css', () => gulp.src(`${DIST_DIR}/*`)
-  .pipe(gulp.dest(`${SITE_CSS_DIR}/`)));
+gulp.task('build:copy-css', (callback) => {
+  gulp.src([
+    `${SRC_DIR}/views/**/*`,
+  ]).pipe(gulp.dest(`${PUBLIC_DIR}/css`))
+  .on('end', callback);
+});
+
+gulp.task('build:browserify', () => {
+  return browserify({
+    basedir: '.',
+    debug: true,
+    entries: [`${SRC_DIR}/views/pages/new/index.ts`],
+    cache: {},
+    packageCache: {}
+  })
+  .plugin(tsify)
+  .bundle()
+  .pipe(source('index.js'))
+  .pipe(buffer())
+  .pipe(sourcemaps.init({loadMaps: true}))
+  .pipe(minify())
+  .on('error', function (err) {
+    gutil.log(gutil.colors.red('[Error]'), err.toString());
+    this.emit('end');
+  })
+  .pipe(sourcemaps.write('.'))
+  .pipe(gulp.dest(`${PUBLIC_DIR}/js/pages/new`));
+});
+
+gulp.task('clean:lib', () => {
+  rimraf.sync(`${LIB_DIR}/*`);
+});
+
+gulp.task('serve', () => {
+  const cp = exec('node lib/app');
+  cp.stdout.pipe(process.stdout);
+  cp.stderr.pipe(process.stderr);
+});
+
+process.on('SIGINT', () => {
+  console.log('Successfully closd ' + process.pid);
+  process.exit(1);
+});
