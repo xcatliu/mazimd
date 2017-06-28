@@ -11,15 +11,17 @@ import config from './config';
 import errorCatcher from './middlewares/errorCatcher';
 
 import pagesId from './controllers/pages/id';
+import pagesNew from './controllers/pages/new';
 
 const router = new Router();
-router.get('/', (ctx) => ctx.render('index'));
+router.get('/', async (ctx) => await ctx.render('index'));
+router.get('/pages/new', pagesNew);
 router.get('/pages/:id', pagesId);
 
 const app = new Koa();
 app.use(hbs.middleware({
   viewPath: path.resolve(__dirname, 'views'),
-  partialsPath: path.resolve(__dirname, 'views/partials'),
+  partialsPath: path.resolve(__dirname, 'views/_partials'),
 }));
 app.use(errorCatcher());
 app.use(mount('/public', serveStatic('./public')));

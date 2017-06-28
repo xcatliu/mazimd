@@ -2,11 +2,9 @@ import * as request from 'superagent';
 import config from '../config';
 
 export function getPageFromId(id, callback) {
-  console.log(`${config.api_origin}/pages/`);
   request
-    .get(`${config.api_origin}/pages/`)
+    .get(`${config.api_origin}/pages/${id}`)
     .end((err, res) => {
-      console.log(err);
       if (err) {
         return callback(err);
       }

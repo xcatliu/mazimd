@@ -8,9 +8,9 @@ export default async function(ctx) {
   }
 
   return await new Promise((resolve, reject) => {
-    getPageFromId(id, (err, data) => {
+    getPageFromId(id, async (err, data) => {
       if (err) return reject(createError(400, err));
-      ctx.render('pages/id/index', data);
+      await ctx.render('pages/id/index', data);
       return resolve();
     });
   });

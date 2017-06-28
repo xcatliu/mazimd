@@ -25,7 +25,7 @@ gulp.task('default', () => {
 });
 
 gulp.task('build', (callback) => {
-  runSequence('clean:lib', 'build:ts', 'build:copy-vendor', 'build:copy-hbs', 'build:copy-css', 'build:browserify', callback);
+  runSequence('clean:lib', 'clean:public', 'build:ts', 'build:copy-vendor', 'build:copy-hbs', 'build:copy-css', 'build:browserify', callback);
 });
 
 gulp.task('build:ts', () =>
@@ -49,7 +49,7 @@ gulp.task('build:copy-hbs', (callback) => {
 
 gulp.task('build:copy-css', (callback) => {
   gulp.src([
-    `${SRC_DIR}/views/**/*`,
+    `${SRC_DIR}/views/**/*.css`,
   ]).pipe(gulp.dest(`${PUBLIC_DIR}/css`))
   .on('end', callback);
 });
@@ -80,6 +80,10 @@ gulp.task('clean:lib', () => {
   rimraf.sync(`${LIB_DIR}/*`);
 });
 
+gulp.task('clean:public', () => {
+  rimraf.sync(`${PUBLIC_DIR}/*`);
+});
+
 gulp.task('serve', () => {
   const cp = exec('node lib/app');
   cp.stdout.pipe(process.stdout);
@@ -87,6 +91,7 @@ gulp.task('serve', () => {
 });
 
 process.on('SIGINT', () => {
-  console.log('Successfully closd ' + process.pid);
-  process.exit(1);
+  console.log('Successfully closed ' + process.pid);
+  console.log('Goodbye!');
+  process.exit(0);
 });
