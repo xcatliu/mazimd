@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>码字 md</title>
+    <link rel="stylesheet" href="/public/vendor/mobi.css-2.0.0-beta.1/dist/mobi.min.css"/>
+    <link rel="stylesheet" href="/public/vendor/font-awesome-4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/public/vendor/simplemde-theme-base/simplemde-theme-base.min.css"/>
+    <link rel="stylesheet" href="/public/css/pages/new/index.css"/>
+  </head>
+  <body>
+    <div class="mazimd-editor">
+      <div class="mazimd-toolbar-wrapper flex-center">
+        <div class="mazimd-toolbar container">
+          <div class="flex-right units-gap-big">
+            <a href="javascript:void(0);" id="mazimd-preview-button" class="unit-0">预览</a>
+          </div>
+        </div>
+      </div>
+      <div class="flex-center">
+        <div class="container mazimd-textarea-container">
+          <textarea id="mazimd-textarea"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="mazimd-preview">
+      <div class="mazimd-preview-toolbar-wrapper flex-center">
+        <div class="mazimd-preview-toolbar mazimd-toolbar container">
+          <div class="flex-right units-gap-big">
+            <a href="javascript:void(0);" id="mazimd-preview-back-button" class="unit-0">返回编辑</a>
+            <a href="javascript:void(0);" id="mazimd-publish-button" class="unit-0">发布</a>
+          </div>
+        </div>
+      </div>
+      <div class="flex-center">
+        <div id="mazimd-preview-content" class="container">
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="/public/js/pages/new/index.js"></script>
+</html>
