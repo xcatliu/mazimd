@@ -18,7 +18,7 @@ const tsProject = ts.createProject('tsconfig.json');
 
 const SRC_DIR = path.resolve(__dirname, 'src');
 const LIB_DIR = path.resolve(__dirname, 'lib');
-const PUBLIC_DIR = path.resolve(__dirname, 'public');
+const PUBLIC_DIR = path.resolve(__dirname, 'docs');
 
 gulp.task('default', () => {
   runSequence('build', 'serve');
