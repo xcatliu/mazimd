@@ -1,7 +1,7 @@
 import { getPageFromId } from '../../models/pages';
 import createError from '../../utils/createError';
 import md2html from '../../utils/md2html';
-import Prism from 'node-prismjs';
+import * as Prism from 'node-prismjs';
 import config from '../../config';
 
 export default async function(ctx) {

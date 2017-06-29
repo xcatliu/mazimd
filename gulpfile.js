@@ -28,7 +28,7 @@ gulp.task('default', () => {
 });
 
 gulp.task('build', (callback) => {
-  runSequence('clean:lib', 'clean:public', 'build:ts', 'build:copy-vendor', 'build:copy-hbs', 'build:copy-css', 'build:browserify', callback);
+  runSequence('clean:lib', 'clean:public', 'build:ts', 'build:copy-vendor', 'build:copy-hbs', 'build:copy-css', 'build:copy-CNAME', 'build:browserify', callback);
 });
 
 gulp.task('build:ts', () =>
@@ -55,6 +55,12 @@ gulp.task('build:copy-css', (callback) => {
     `${SRC_DIR}/views/**/*.css`,
   ]).pipe(gulp.dest(`${PUBLIC_DIR}/css`))
   .on('end', callback);
+});
+
+gulp.task('build:copy-CNAME', (callback) => {
+  gulp.src(`${SRC_DIR}/CNAME`)
+    .pipe(gulp.dest(`${PUBLIC_DIR}`))
+    .on('end', callback);
 });
 
 gulp.task('build:browserify', () => {

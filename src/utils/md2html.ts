@@ -2,7 +2,6 @@ export default (Prism) => {
   const md = require('markdown-it')({
     html: true,
     highlight: (str, lang) => {
-      console.log(Prism.languages);
       const prismLang = Prism.languages[lang] || Prism.languages.autoit;
       const classNameLang = lang || 'autoit';
       return `<pre class="language-${classNameLang}"><code class="language-${classNameLang}">${Prism.highlight(str, prismLang)}</code></pre>`;
