@@ -4,7 +4,7 @@
   "description": "The api server for mazimd",
   "main": "lib/app.js",
   "scripts": {
-    "start": "gulp",
+    "start": "cross-env NODE_ENV=development gulp",
     "build": "gulp build",
     "serve": "gulp serve",
     "test": "npm run lint",
@@ -30,7 +30,6 @@
     "markdown-it-anchor": "^4.0.0",
     "markdown-it-title": "^1.0.4",
     "node-prismjs": "^0.1.0",
-    "prismjs": "^1.6.0",
     "simplemde": "^1.11.2",
     "superagent": "^3.5.2"
   },
@@ -47,6 +46,7 @@
     "@types/simplemde": "^1.11.6",
     "@types/superagent": "^2.0.36",
     "browserify": "^14.4.0",
+    "cross-env": "^5.0.1",
     "gulp": "^3.9.1",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-typescript": "^3.1.6",

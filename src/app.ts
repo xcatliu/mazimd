@@ -24,7 +24,9 @@ app.use(hbs.middleware({
   // partialsPath: path.resolve(__dirname, 'views/_partials'),
 }));
 app.use(errorCatcher());
-app.use(mount('/public', serveStatic('./public')));
+if (process.env.NODE_ENV === 'development') {
+  app.use(mount('/public', serveStatic('./docs')));
+}
 app.use(router.routes());
 
 app.listen(config.port, () => {

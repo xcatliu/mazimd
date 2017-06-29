@@ -3,6 +3,12 @@ import * as request from 'superagent';
 import md2html from '../../../utils/md2html';
 import config from '../../../config';
 
+declare global {
+  interface Window {
+    Prism?: any,
+  }
+}
+
 function createNewPage(content, callback) {
   request
     .post(`${config.api_origin}/pages`)
@@ -51,7 +57,7 @@ const simplemde = new SimpleMDE({
 
 document.getElementById('mazimd-preview-button').addEventListener('click', (e) => {
   e.preventDefault();
-  document.getElementById('mazimd-preview-content').innerHTML = md2html(simplemde.value()).html;
+  document.getElementById('mazimd-preview-content').innerHTML = md2html(window.Prism)(simplemde.value()).html;
   document.body.classList.add('mazimd-preview-mode');
 });
 

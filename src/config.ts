@@ -1,5 +1,5 @@
 export default {
   port: 8100,
   api_origin: 'http://api.mazimd.com',
-  cdn_origin: 'http://cdn.mazimd.com',
+  cdn_origin: process.env.NODE_ENV === 'development' ? 'http://localhost:8100/public' : 'http://cdn.mazimd.com',
 };

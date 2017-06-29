@@ -1,6 +1,6 @@
 .mazimd-toolbar-wrapper {
   background: #fff;
-  height: 47px;
+  height: 48px;
   left: 0;
   position: fixed;
   top: 0;
@@ -11,12 +11,12 @@
 
 .mazimd-toolbar {
   padding-bottom: 0;
-  height: 46px;
-  line-height: 46px;
+  height: 47px;
+  line-height: 47px;
 }
 
 .mazimd-textarea-container {
-  margin-top: 56px;
+  margin-top: 58px;
 }
 
 .mazimd-preview .CodeMirror-scroll {

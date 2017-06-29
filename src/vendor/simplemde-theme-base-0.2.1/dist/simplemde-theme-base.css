@@ -1,4 +1,4 @@
-/* SimpleMDE Theme Base v0.1.2 https://github.com/xcatliu/simplemde-theme-base#readme */
+/* SimpleMDE Theme Base v0.2.1 https://github.com/xcatliu/simplemde-theme-base#readme */
 
 @charset "UTF-8";
 /* THIS FILE IS COPIED FROM CODEMIRROR.CSS, PLEASE DONOT EDIT IT. */
@@ -403,17 +403,17 @@ span.CodeMirror-selectedtext {
   background: none; }
 
 .CodeMirror {
-  background-color: #fff;
+  background-color: white;
   border: 1px solid #ddd;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
   color: #333;
   font-family: inherit;
-  font-size: 18px;
+  font-size: 16px;
   height: auto;
   line-height: 1.5;
   min-height: 300px;
-  padding: 14px;
+  padding: 15px;
   z-index: 1; }
 
 .CodeMirror-scroll {
@@ -423,7 +423,7 @@ span.CodeMirror-selectedtext {
   padding-bottom: 32px; }
 
 .CodeMirror-fullscreen {
-  background-color: #fff;
+  background-color: white;
   border: 0;
   border-top: 1px solid #ddd;
   bottom: 0;
@@ -431,7 +431,7 @@ span.CodeMirror-selectedtext {
   left: 0;
   position: fixed !important;
   right: 0;
-  top: 58px;
+  top: 60px;
   z-index: 9; }
 
 .CodeMirror-sided {
@@ -473,7 +473,7 @@ span.CodeMirror-selectedtext {
   color: #777; }
 
 .CodeMirror .CodeMirror-code .cm-link {
-  color: #0080ff; }
+  color: #2680d9; }
 
 .CodeMirror .CodeMirror-code .cm-url {
   color: #777; }
@@ -504,29 +504,29 @@ span.CodeMirror-selectedtext {
   font-size: 26px; }
 
 .CodeMirror .CodeMirror-code .cm-header-3 {
-  font-size: 24px; }
-
-.CodeMirror .CodeMirror-code .cm-header-4 {
   font-size: 22px; }
 
-.CodeMirror .CodeMirror-code .cm-header-5 {
+.CodeMirror .CodeMirror-code .cm-header-4 {
   font-size: 20px; }
 
-.CodeMirror .CodeMirror-code .cm-header-6 {
+.CodeMirror .CodeMirror-code .cm-header-5 {
   font-size: 18px; }
+
+.CodeMirror .CodeMirror-code .cm-header-6 {
+  font-size: 16px; }
 
 .CodeMirror .CodeMirror-code .cm-header,
 .CodeMirror .CodeMirror-code .cm-strong {
   font-weight: 600; }
 
 .CodeMirror .CodeMirror-code .cm-comment {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: #f2f2f2;
   font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: 14px;
-  padding: 6px 0 4px; }
+  font-size: 13px;
+  padding: 6px 0 3px; }
 
 .CodeMirror .CodeMirror-code span.CodeMirror-selectedtext.cm-comment {
-  background-color: rgba(0, 0, 0, 0.05); }
+  background-color: #f2f2f2; }
 
 .CodeMirror .CodeMirror-code .cm-quote {
   color: #777; }
@@ -549,7 +549,7 @@ span.CodeMirror-selectedtext {
   bottom: 0;
   position: fixed;
   right: 0;
-  top: 58px;
+  top: 60px;
   width: 50%;
   z-index: 9; }
 
@@ -560,24 +560,24 @@ span.CodeMirror-selectedtext {
   color: #333;
   display: none;
   font-family: inherit;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5;
   overflow: auto;
-  padding: 0 14px 14px; }
+  padding: 0 15px 15px; }
   .editor-preview pre,
   .editor-preview-side pre {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: #f2f2f2;
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.2;
-    margin-top: 14px;
+    margin-top: 15px;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
-    padding: 14px; }
+    padding: 15px; }
     .editor-preview pre code,
     .editor-preview-side pre code {
       background-color: transparent;
-      font-size: 14px;
+      font-size: 13px;
       padding: 0; }
 
 .editor-preview-active,
@@ -586,7 +586,7 @@ span.CodeMirror-selectedtext {
 
 .editor-preview table,
 .editor-preview-side table {
-  background-color: #fff;
+  background-color: white;
   border: 0;
   border-collapse: collapse;
   border-spacing: 0;
@@ -595,7 +595,8 @@ span.CodeMirror-selectedtext {
   .editor-preview-side table caption {
     caption-side: bottom;
     color: #777;
-    padding: 7px;
+    font-size: 85%;
+    padding: 5px;
     text-align: left; }
   .editor-preview table th,
   .editor-preview table td,
@@ -603,11 +604,11 @@ span.CodeMirror-selectedtext {
   .editor-preview-side table td {
     border: 0;
     border-bottom: 1px solid #ddd;
-    padding: 7px;
+    padding: 5px;
     text-align: left; }
   .editor-preview table th,
   .editor-preview-side table th {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: #f2f2f2;
     font-weight: 600; }
 
 .editor-preview audio:not([controls]),
@@ -627,13 +628,13 @@ span.CodeMirror-selectedtext {
   width: 100%; }
 
 .editor-toolbar {
-  background-color: #fff;
+  background-color: white;
   border: 1px solid #ddd;
   border-bottom: 0;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  font-size: 18px;
-  padding: 0 14px;
+  font-size: 16px;
+  padding: 0 15px;
   position: relative;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -644,16 +645,16 @@ span.CodeMirror-selectedtext {
     display: block;
     height: 1px; }
   .editor-toolbar::before {
-    margin-bottom: 7px; }
+    margin-bottom: 7.5px; }
   .editor-toolbar::after {
-    margin-top: 7px; }
+    margin-top: 7.5px; }
   .editor-toolbar a {
     border: 1px solid transparent;
     border-radius: 3px;
     color: #777 !important;
     cursor: pointer;
     display: inline-block;
-    font-size: 80%;
+    font-size: 85%;
     height: 30px;
     margin: 0;
     text-align: center;
@@ -667,7 +668,7 @@ span.CodeMirror-selectedtext {
     .editor-toolbar a.fa-header-x::after {
       bottom: -0.25em;
       font-family: inherit;
-      font-size: 80%;
+      font-size: 85%;
       line-height: 0;
       position: relative;
       vertical-align: baseline; }
@@ -685,29 +686,29 @@ span.CodeMirror-selectedtext {
     border-right: 1px solid #ddd;
     color: transparent;
     display: inline-block;
-    margin: 0 7px;
+    margin: 0 7.5px;
     text-indent: -10px;
     width: 0; }
   .editor-toolbar:hover a {
     color: #333 !important; }
 
 .editor-toolbar.fullscreen {
-  background-color: #fff;
+  background-color: white;
   border: 0;
   box-sizing: border-box;
-  height: 58px;
+  height: 60px;
   left: 0;
   overflow-x: auto;
   overflow-y: hidden;
-  padding-bottom: 14px;
-  padding-top: 14px;
+  padding-bottom: 15px;
+  padding-top: 15px;
   position: fixed;
   top: 0;
   white-space: nowrap;
   width: 100%;
   z-index: 9; }
   .editor-toolbar.fullscreen::before, .editor-toolbar.fullscreen::after {
-    height: 58px;
+    height: 60px;
     left: 0;
     margin: 0;
     padding: 0;
@@ -715,7 +716,7 @@ span.CodeMirror-selectedtext {
     top: 0;
     width: 20px; }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 768px) {
   .editor-toolbar a.no-mobile {
     display: none; } }
 
@@ -728,8 +729,8 @@ span.CodeMirror-selectedtext {
 .editor-statusbar {
   color: #777;
   font-family: inherit;
-  font-size: 80%;
-  padding: 7px 14px;
+  font-size: 85%;
+  padding: 7.5px 15px;
   text-align: right; }
 
 .editor-statusbar span {
