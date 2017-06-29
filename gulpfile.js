@@ -24,6 +24,7 @@ gulp.task('default', () => {
   runSequence('build', 'serve');
 
   gulp.watch(`${SRC_DIR}/views/pages/new/index.ts`, ['build:browserify']);
+  gulp.watch(`${SRC_DIR}/views/**/*.css`, ['build:copy-css']);
 });
 
 gulp.task('build', (callback) => {

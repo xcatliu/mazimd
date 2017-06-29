@@ -21,7 +21,7 @@ router.get('/pages/:id', pagesId);
 const app = new Koa();
 app.use(hbs.middleware({
   viewPath: path.resolve(__dirname, 'views'),
-  partialsPath: path.resolve(__dirname, 'views/_partials'),
+  // partialsPath: path.resolve(__dirname, 'views/_partials'),
 }));
 app.use(errorCatcher());
 app.use(mount('/public', serveStatic('./public')));

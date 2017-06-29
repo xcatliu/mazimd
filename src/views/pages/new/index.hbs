@@ -8,16 +8,32 @@
     <link rel="stylesheet" href="/public/css/pages/new/index.css"/>
   </head>
   <body>
-    <div class="mazimd-toolbar-background">
-      <div class="flex-center">
+    <div class="mazimd-editor">
+      <div class="mazimd-toolbar-wrapper flex-center">
         <div class="mazimd-toolbar container">
-          <a href="#" id="mazimd-preview-button" class="mazimd-preview-button">预览</a>
+          <div class="flex-right units-gap-big">
+            <a href="javascript:void(0);" id="mazimd-preview-button" class="unit-0">预览</a>
+          </div>
+        </div>
+      </div>
+      <div class="flex-center">
+        <div class="container mazimd-textarea-container">
+          <textarea id="mazimd-textarea"></textarea>
         </div>
       </div>
     </div>
-    <div class="flex-center">
-      <div id="mazimd-container" class="container mazimd-container">
-        <textarea id="mazimd-textarea"></textarea>
+    <div class="mazimd-preview">
+      <div class="mazimd-preview-toolbar-wrapper flex-center">
+        <div class="mazimd-preview-toolbar mazimd-toolbar container">
+          <div class="flex-right units-gap-big">
+            <a href="javascript:void(0);" id="mazimd-preview-back-button" class="unit-0">返回编辑</a>
+            <a href="javascript:void(0);" id="mazimd-publish-button" class="unit-0">发布</a>
+          </div>
+        </div>
+      </div>
+      <div class="flex-center">
+        <div id="mazimd-preview-content" class="container">
+        </div>
       </div>
     </div>
   </body>

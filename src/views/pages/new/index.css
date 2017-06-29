@@ -1,25 +1,22 @@
-.mazimd-toolbar-background {
+.mazimd-toolbar-wrapper {
   background: #fff;
-  height: 46px;
+  height: 47px;
   left: 0;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 10;
+  border-bottom: 1px solid #ddd;
 }
 
 .mazimd-toolbar {
-  padding: 0;
+  padding-bottom: 0;
   height: 46px;
   line-height: 46px;
 }
 
-.mazimd-preview-button {
-  float: right;
-}
-
-.mazimd-container {
-  margin-top: 46px;
+.mazimd-textarea-container {
+  margin-top: 56px;
 }
 
 .mazimd-preview .CodeMirror-scroll {
@@ -39,4 +36,21 @@
   position: fixed;
   top: 0;
   z-index: 10;
+}
+
+.mazimd-preview {
+  display: none;
+}
+
+.mazimd-preview-mode .mazimd-preview {
+  display: block;
+}
+
+.mazimd-preview-mode .mazimd-editor {
+  display: none;
+}
+
+.mazimd-preview-toolbar {
+  position: absolute;
+  width: 100%;
 }
