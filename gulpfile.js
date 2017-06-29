@@ -22,6 +22,8 @@ const PUBLIC_DIR = path.resolve(__dirname, 'public');
 
 gulp.task('default', () => {
   runSequence('build', 'serve');
+
+  gulp.watch(`${SRC_DIR}/views/pages/new/index.ts`, ['build:browserify']);
 });
 
 gulp.task('build', (callback) => {

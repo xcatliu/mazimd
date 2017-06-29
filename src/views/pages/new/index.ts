@@ -1,5 +1,6 @@
 import * as SimpleMDE from 'simplemde';
 import * as request from 'superagent';
+import md2html from './md2html';
 
 function createNewPage(content, callback) {
   request
@@ -55,6 +56,11 @@ const simplemde = new SimpleMDE({
       title: "关于 码字 md",
     }
   ]
+});
+
+document.getElementById('mazimd-preview-button').addEventListener('click', (e) => {
+  e.preventDefault();
+  console.log(md2html(simplemde.value()));
 });
 
 // var submit = document.getElementById('submit');
