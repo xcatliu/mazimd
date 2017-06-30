@@ -13,10 +13,16 @@ import errorCatcher from './middlewares/errorCatcher';
 import pagesId from './controllers/pages/id';
 import pagesNew from './controllers/pages/new';
 
+import themes from './controllers/themes';
+
 const router = new Router();
+
 router.get('/', async (ctx) => await ctx.render('index'));
+
 router.get('/pages/new', pagesNew);
 router.get('/pages/:id', pagesId);
+
+router.get('/themes', themes);
 
 const app = new Koa();
 app.use(hbs.middleware({

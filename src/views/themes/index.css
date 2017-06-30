@@ -1,0 +1,14 @@
+.mazimd-themes-color-box {
+  height: 30px;
+}
+
+.mazimd-themes-link {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #333;
+}
+
+.mazimd-themes-link:hover {
+  text-decoration: none;
+  background-color: #f2f2f2;
+}

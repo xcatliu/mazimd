@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>主题 - 码字 md</title>
+    <link rel="stylesheet" href="{{ cdn_origin }}/vendor/mobi.css-2.0.0-beta.1/dist/mobi.min.css"/>
+    <link rel="stylesheet" href="{{ cdn_origin }}/css/themes/index.css"/>
+  </head>
+  <body>
+    <div class="flex-center">
+      <div class="container-wider">
+        <h1>主题</h1>
+        <div class="flex-left flex-wrap units-gap-big top-gap">
+          {{#each themes}}
+            <a href="{{this.html_url}}" class="unit-1-4 unit-1-on-mobile mazimd-themes-link top-gap">
+              <h3 class="top-gap-0">{{this.name}}</h3>
+              <div class="flex-left">
+              {{#each this.colors}}
+                <div class="unit mazimd-themes-color-box" style="background-color: {{this}}"></div>
+              {{/each}}
+              </div>
+            </a>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
