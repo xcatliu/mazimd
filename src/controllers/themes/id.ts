@@ -1,9 +1,6 @@
-import { getPageFromId } from '../../models/pages';
+import { getThemeFromId } from '../../models/themes';
 import createError from '../../utils/createError';
-import md2html from '../../utils/md2html';
-import * as Prism from 'node-prismjs';
 import config from '../../config';
-import * as xssFilters from 'xss-filters';
 
 export default async function(ctx) {
   const id = ctx.params.id;
@@ -12,11 +9,12 @@ export default async function(ctx) {
   }
 
   return await new Promise((resolve, reject) => {
-    getPageFromId(id, async (err, data) => {
+    getThemeFromId(id, async (err, theme) => {
       if (err) return reject(createError(400, err));
-      await ctx.render('pages/id/index', {
+      await ctx.render('themes/id/index', {
         cdn_origin: config.cdn_origin,
-        content: xssFilters.inHTMLData(md2html(Prism)(data.content).html)
+        name: theme.name,
+        css: theme.css
       });
       return resolve();
     });

@@ -12,7 +12,7 @@ declare global {
 function createNewPage(content, callback) {
   request
     .post(`${config.api_origin}/pages`)
-    .send({ content, expire_in: '1h' })
+    .send({ content })
     .end((err, res) => {
       if (err) {
         return callback(err);

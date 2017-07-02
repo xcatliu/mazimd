@@ -14,6 +14,7 @@ import pagesId from './controllers/pages/id';
 import pagesNew from './controllers/pages/new';
 
 import themes from './controllers/themes';
+import themesId from './controllers/themes/id';
 
 const router = new Router();
 
@@ -23,6 +24,7 @@ router.get('/pages/new', pagesNew);
 router.get('/pages/:id', pagesId);
 
 router.get('/themes', themes);
+router.get('/themes/:id', themesId);
 
 const app = new Koa();
 app.use(hbs.middleware({

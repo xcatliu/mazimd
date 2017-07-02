@@ -11,3 +11,14 @@ export function getAllThemes(callback) {
       callback(null, res.body);
     });
 }
+
+export function getThemeFromId(id, callback) {
+  request
+    .get(`${config.api_origin}/themes/${id}`)
+    .end((err, res) => {
+      if (err) {
+        return callback(err);
+      }
+      callback(null, res.body);
+    });
+}
