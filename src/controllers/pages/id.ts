@@ -3,7 +3,6 @@ import createError from '../../utils/createError';
 import md2html from '../../utils/md2html';
 import * as Prism from 'node-prismjs';
 import config from '../../config';
-import * as xssFilters from 'xss-filters';
 
 export default async function(ctx) {
   const id = ctx.params.id;
@@ -16,7 +15,7 @@ export default async function(ctx) {
       if (err) return reject(createError(400, err));
       await ctx.render('pages/id/index', {
         cdn_origin: config.cdn_origin,
-        content: xssFilters.inHTMLData(md2html(Prism)(data.content).html)
+        content: md2html(Prism)(data.content).html
       });
       return resolve();
     });
