@@ -1,4 +1,4 @@
-import * as xssFilters from 'xss-filters';
+import * as xss from 'xss';
 
 export default (Prism) => {
   const md = require('markdown-it')({
@@ -20,7 +20,7 @@ export default (Prism) => {
     const env = {
       title: '',
     };
-    const htmlContent = xssFilters.inHTMLData(md.render(markdown, env));
+    const htmlContent = xss(md.render(markdown, env));
 
     return {
       title: env.title,

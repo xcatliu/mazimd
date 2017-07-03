@@ -34,7 +34,7 @@
     "scoper": "^1.0.0",
     "simplemde": "^1.11.2",
     "superagent": "^3.5.2",
-    "xss-filters": "^1.2.7"
+    "xss": "^0.3.3"
   },
   "devDependencies": {
     "@types/koa": "^2.0.39",
