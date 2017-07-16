@@ -2,13 +2,22 @@
 <html>
   <head>
     <title>码字 md</title>
-    <link rel="stylesheet" href="{{ cdn_origin }}/vendor/mobi.css-2.0.0-beta.1/dist/mobi.min.css"/>
+    <link rel="stylesheet" href="{{cdn_origin}}/vendor/mobi.css-2.0.0-beta.1/dist/mobi.min.css"/>
+    <link rel="stylesheet" href="{{cdn_origin}}/css/common.css"/>
+    <link rel="stylesheet" href="{{cdn_origin}}/css/pages/id/index.css"/>
   </head>
   <body>
+    <div class="mazimd-preview-absolute flex-center">
+      <div class="mazimd-toolbar container">
+        <div class="flex-right units-gap-big">
+          <a href="/pages/new?fork_id={{id}}" id="mazimd-folk-button" class="unit-0">衍生</a>
+        </div>
+      </div>
+    </div>
     <div class="flex-center">
       <div class="container">
         <article>
-          {{{ content }}}
+          {{{content}}}
         </article>
       </div>
     </div>

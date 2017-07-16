@@ -2,16 +2,17 @@
 <html>
   <head>
     <title>码字 md</title>
-    <link rel="stylesheet" href="{{ cdn_origin }}/vendor/mobi.css-2.0.0-beta.1/dist/mobi.min.css"/>
+    <link rel="stylesheet" href="{{cdn_origin}}/vendor/mobi.css-2.0.0-beta.1/dist/mobi.min.css"/>
 
-    <link rel="stylesheet" href="{{ cdn_origin }}/vendor/mobi.css-2.0.0-beta.1/dist/mobi.min.css"/>
-    <link rel="stylesheet" href="{{ cdn_origin }}/vendor/font-awesome-4.7.0/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="{{ cdn_origin }}/vendor/simplemde-theme-base-0.2.1/dist/simplemde-theme-base.min.css"/>
-    <link rel="stylesheet" href="{{ cdn_origin }}/css/pages/new/index.css"/>
+    <link rel="stylesheet" href="{{cdn_origin}}/vendor/mobi.css-2.0.0-beta.1/dist/mobi.min.css"/>
+    <link rel="stylesheet" href="{{cdn_origin}}/vendor/font-awesome-4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="{{cdn_origin}}/vendor/simplemde-theme-base-0.2.1/dist/simplemde-theme-base.min.css"/>
+    <link rel="stylesheet" href="{{cdn_origin}}/css/common.css"/>
+    <link rel="stylesheet" href="{{cdn_origin}}/css/pages/new/index.css"/>
   </head>
   <body>
     <div class="mazimd-editor">
-      <div class="mazimd-toolbar-wrapper flex-center">
+      <div class="mazimd-toolbar-fixed flex-center">
         <div class="mazimd-toolbar container">
           <div class="flex-right units-gap-big">
             <a href="javascript:void(0);" id="mazimd-preview-button" class="unit-0">预览</a>
@@ -20,13 +21,13 @@
       </div>
       <div class="flex-center">
         <div class="container mazimd-textarea-container">
-          <textarea id="mazimd-textarea"></textarea>
+          <textarea id="mazimd-textarea">{{md_content}}</textarea>
         </div>
       </div>
     </div>
     <div class="mazimd-preview">
-      <div class="mazimd-preview-toolbar-wrapper flex-center">
-        <div class="mazimd-preview-toolbar mazimd-toolbar container">
+      <div class="mazimd-preview-absolute flex-center">
+        <div class="mazimd-toolbar container">
           <div class="flex-right units-gap-big">
             <a href="javascript:void(0);" id="mazimd-preview-back-button" class="unit-0">返回编辑</a>
             <a href="javascript:void(0);" id="mazimd-publish-button" class="unit-0">发布</a>
@@ -39,6 +40,6 @@
       </div>
     </div>
   </body>
-  <script src="{{ cdn_origin }}/vendor/prism-custom/prism.js"></script>
-  <script src="{{ cdn_origin }}/js/pages/new/index.js"></script>
+  <script src="{{cdn_origin}}/vendor/prism-custom/prism.js"></script>
+  <script src="{{cdn_origin}}/js/pages/new/index.js"></script>
 </html>

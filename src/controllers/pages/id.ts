@@ -14,6 +14,7 @@ export default async function(ctx) {
     getPageFromId(id, async (err, data) => {
       if (err) return reject(createError(400, err));
       await ctx.render('pages/id/index', {
+        id,
         cdn_origin: config.cdn_origin,
         content: md2html(Prism)(data.content).html
       });

@@ -21,6 +21,8 @@ function createNewPage(content, callback) {
     });
 }
 
+const textareaElement = <HTMLTextAreaElement>document.getElementById('mazimd-textarea');
+
 const simplemde = new SimpleMDE({
   autoDownloadFontAwesome: false,
   autofocus: true,
@@ -30,11 +32,11 @@ const simplemde = new SimpleMDE({
   },
   element: document.getElementById('mazimd-textarea'),
   indentWithTabs: false,
-  initialValue: 'Hello World',
+  initialValue: '# Hello World',
   insertTexts: {
     image: ['![](http://', ')']
   },
-  placeholder: 'Hello World',
+  placeholder: 'Type markdown here',
   spellChecker: false,
   status: false,
   styleSelectedText: false,
@@ -54,6 +56,10 @@ const simplemde = new SimpleMDE({
     'table'
   ]
 });
+
+if (textareaElement.value !== '') {
+  simplemde.value(textareaElement.value);
+}
 
 document.getElementById('mazimd-preview-button').addEventListener('click', (e) => {
   e.preventDefault();

@@ -1,20 +1,3 @@
-.mazimd-toolbar-wrapper {
-  background: #fff;
-  height: 48px;
-  left: 0;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 10;
-  border-bottom: 1px solid #ddd;
-}
-
-.mazimd-toolbar {
-  padding-bottom: 0;
-  height: 47px;
-  line-height: 47px;
-}
-
 .mazimd-textarea-container {
   margin-top: 58px;
 }
@@ -48,9 +31,4 @@
 
 .mazimd-preview-mode .mazimd-editor {
   display: none;
-}
-
-.mazimd-preview-toolbar {
-  position: absolute;
-  width: 100%;
 }
