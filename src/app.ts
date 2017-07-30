@@ -29,7 +29,7 @@ router.get('/themes/:id', themesId);
 const app = new Koa();
 app.use(hbs.middleware({
   viewPath: path.resolve(__dirname, 'views'),
-  // partialsPath: path.resolve(__dirname, 'views/_partials'),
+  partialsPath: path.resolve(__dirname, 'views/_partials'),
 }));
 app.use(errorCatcher());
 if (process.env.NODE_ENV === 'development') {
